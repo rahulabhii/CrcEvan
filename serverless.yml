@@ -1,0 +1,65 @@
+
+
+service: assetInspection
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  timeout: 15
+ 
+
+functions:
+  hello:
+   handler: handler.asset_inspection
+   events: 
+   - httpApi: 
+      path: /api/registeruser/{proxy+}
+      method: get  
+   - httpApi: 
+      path: /api/registeruser/register
+      method: post             
+   - httpApi: 
+      path: /api/area
+      method: get   
+   - httpApi: 
+      path: /api/area
+      method: post    
+   - httpApi: 
+      path: /api/inspection
+      method: post   
+   - httpApi: 
+      path: /api/inspection
+      method: get
+   - httpApi: 
+      path: /api/inspectedby
+      method: post    
+   - httpApi: 
+      path: /api/assetinformation
+      method: post
+   - httpApi: 
+      path: /api/labourcost
+      method: post   
+   - httpApi: 
+      path: /api/labourcost
+      method: get       
+   - httpApi: 
+      path: /api/signature
+      method: post      
+   - httpApi: 
+      path: /api/inspection/estimation
+      method: post  
+   - httpApi: 
+      path: /api/sentreport
+      method: post 
+   - httpApi: 
+      path: /api/getreport
+      method: get    
+   - httpApi: 
+      path: /api/component
+      method: post 
+   - httpApi: 
+      path: /api/component
+      method: get 
+                                                       
